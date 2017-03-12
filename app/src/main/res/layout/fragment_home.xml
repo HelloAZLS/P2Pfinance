@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/common_top"/>
     <TextView
         android:textSize="30sp"
         android:textColor="#f00"

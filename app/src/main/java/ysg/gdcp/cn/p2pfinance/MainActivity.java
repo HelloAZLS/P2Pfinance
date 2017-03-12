@@ -17,6 +17,7 @@ import ysg.gdcp.cn.p2pfinance.fregment.HomeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MoreFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.TouZiFragment;
+import ysg.gdcp.cn.p2pfinance.utils.UIutils;
 
 public class MainActivity extends FragmentActivity {
 
@@ -60,6 +61,11 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initDate();
+    }
+
+    private void initDate() {
+        setSelect(0);
     }
 
     @OnClick({R.id.ll_home, R.id.ll_touzi, R.id.ll_me, R.id.ll_more})
@@ -85,12 +91,15 @@ public class MainActivity extends FragmentActivity {
         FragmentManager manager = getSupportFragmentManager();
         ft = manager.beginTransaction();
         hideFragment();
+        resetTab();
         switch (i) {
             case 0:
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment();
                     ft.add(R.id.content, homeFragment);
                 }
+                ivHome.setImageResource(R.drawable.bid01);
+                tvHome.setTextColor(UIutils.getColor(R.color.home_back_selected));
                 ft.show(homeFragment);
                 break;
             case 1:
@@ -98,6 +107,8 @@ public class MainActivity extends FragmentActivity {
                     touziFragment = new TouZiFragment();
                     ft.add(R.id.content, touziFragment);
                 }
+                ivTouZi.setImageResource(R.drawable.bid03);
+                tvTouZi.setTextColor(UIutils.getColor(R.color.home_back_selected));
                 ft.show(touziFragment);
                 break;
             case 2:
@@ -105,6 +116,8 @@ public class MainActivity extends FragmentActivity {
                     meFragment = new MeFragment();
                     ft.add(R.id.content, meFragment);
                 }
+                ivMe.setImageResource(R.drawable.bid05);
+                tvMe.setTextColor(UIutils.getColor(R.color.home_back_selected));
                 ft.show(meFragment);
                 break;
             case 3:
@@ -112,6 +125,8 @@ public class MainActivity extends FragmentActivity {
                     moreFragment = new MoreFragment();
                     ft.add(R.id.content, moreFragment);
                 }
+                ivMore.setImageResource(R.drawable.bid07);
+                tvMore.setTextColor(UIutils.getColor(R.color.home_back_selected));
                 ft.show(moreFragment);
                 break;
 
@@ -119,17 +134,28 @@ public class MainActivity extends FragmentActivity {
         ft.commit();
     }
 
+    private void resetTab() {
+        ivHome.setImageResource(R.drawable.bid02);
+        ivTouZi.setImageResource(R.drawable.bid04);
+        ivMe.setImageResource(R.drawable.bid06);
+        ivMore.setImageResource(R.drawable.bid08);
+        tvHome.setTextColor(UIutils.getColor(R.color.home_back_unselected));
+        tvTouZi.setTextColor(UIutils.getColor(R.color.home_back_unselected));
+        tvMe.setTextColor(UIutils.getColor(R.color.home_back_unselected));
+        tvMore.setTextColor(UIutils.getColor(R.color.home_back_unselected));
+    }
+
     private void hideFragment() {
-        if (homeFragment!=null){
+        if (homeFragment != null) {
             ft.hide(homeFragment);
         }
-        if (meFragment!=null){
+        if (meFragment != null) {
             ft.hide(meFragment);
         }
-        if (touziFragment!=null){
+        if (touziFragment != null) {
             ft.hide(touziFragment);
         }
-        if (moreFragment!=null){
+        if (moreFragment != null) {
             ft.hide(moreFragment);
         }
 
