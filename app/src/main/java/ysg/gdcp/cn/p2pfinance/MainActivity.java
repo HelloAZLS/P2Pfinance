@@ -13,6 +13,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ysg.gdcp.cn.p2pfinance.common.AppManager;
 import ysg.gdcp.cn.p2pfinance.fregment.HomeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MoreFragment;
@@ -61,6 +62,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        AppManager.getInstance().addActivity(this);
         initDate();
     }
 
