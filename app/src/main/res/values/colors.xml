@@ -6,4 +6,5 @@
     <color name="home_back_selected">#18B4ED</color>
     <color name="home_back_unselected">#878787</color>
     <color name="title_text">#26B8EE</color>
+    <color name="product_detail_common">#666666</color>
 </resources>

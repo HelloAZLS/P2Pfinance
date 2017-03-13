@@ -8,7 +8,7 @@ package ysg.gdcp.cn.p2pfinance.common;
 
 public class AppNetConfig {
 
-    public static final String HOST = "196.168.48.1";
+    public static final String HOST = "192.168.191.1";
     public static final String BASEURL ="http://"+HOST+":8080/P2PInvest/";
     public static final String LOGIN = BASEURL+"login";
     public static final String PRODUCT = BASEURL+"product";
