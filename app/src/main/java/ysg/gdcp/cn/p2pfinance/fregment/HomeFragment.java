@@ -1,12 +1,8 @@
 package ysg.gdcp.cn.p2pfinance.fregment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,14 +21,12 @@ import com.viewpagerindicator.CirclePageIndicator;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import ysg.gdcp.cn.p2pfinance.R;
 import ysg.gdcp.cn.p2pfinance.common.AppNetConfig;
 import ysg.gdcp.cn.p2pfinance.domain.Image;
 import ysg.gdcp.cn.p2pfinance.domain.Index;
 import ysg.gdcp.cn.p2pfinance.domain.Product;
 import ysg.gdcp.cn.p2pfinance.ui.RoundProgress;
-import ysg.gdcp.cn.p2pfinance.utils.UIutils;
 
 import static com.alibaba.fastjson.JSON.parseObject;
 
@@ -40,7 +34,7 @@ import static com.alibaba.fastjson.JSON.parseObject;
  * Created by Administrator on 2017/3/11.
  */
 ////// TODO: 2017/3/13  测试一下
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     AsyncHttpClient client = new AsyncHttpClient();
     @Bind(R.id.title_left)
@@ -65,24 +59,19 @@ public class HomeFragment extends Fragment {
     ScrollView myScrollView;
     private Index index;
 
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = UIutils.getXMLView(R.layout.fragment_home);
-        ButterKnife.bind(this, view);
-        initTitle();
-        initData();
-
-        return view;
+    public void initTitle() {
+        TitleLeft.setVisibility(View.INVISIBLE);
+        TitleRight.setVisibility(View.INVISIBLE);
     }
 
-    private void initData() {
+    @Override
+    public void initData() {
         index = new Index();
         client.post(AppNetConfig.INDEX, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String content) {
-                Log.i("返回的数据",content);
+                Log.i("返回的数据", content);
                 JSONObject jsonObject = parseObject(content);
                 String proInfo = jsonObject.getString("proInfo");
                 Product product = parseObject(proInfo, Product.class);
@@ -93,6 +82,8 @@ public class HomeFragment extends Fragment {
                 vpBarner.setAdapter(new MyAdapter());
                 circleBarner.setViewPager(vpBarner);
 
+                currentProgress = Integer.parseInt(index.product.progress);
+                new Thread(runable).start();
             }
 
             @Override
@@ -102,10 +93,29 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void initTitle() {
-        TitleLeft.setVisibility(View.INVISIBLE);
-        TitleRight.setVisibility(View.INVISIBLE);
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_home;
     }
+
+    private int currentProgress;
+    private Runnable runable = new Runnable() {
+        @Override
+        public void run() {
+            int tempProgress = 0;
+            try {
+                while (tempProgress <= currentProgress) {
+                    pProgress.setProgress(tempProgress);
+                    tempProgress++;
+                    Thread.sleep(100);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+
 
     private class MyAdapter extends PagerAdapter {
         @Override

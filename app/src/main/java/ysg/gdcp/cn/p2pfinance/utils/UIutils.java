@@ -2,6 +2,7 @@ package ysg.gdcp.cn.p2pfinance.utils;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Process;
 import android.view.View;
 
 import ysg.gdcp.cn.p2pfinance.common.MyApplication;
@@ -36,5 +37,25 @@ public class UIutils {
     public  static  int px2do(int px){
         float density = getContext().getResources().getDisplayMetrics().density;
         return (int) (px/density+0.5);
+    }
+
+    /**
+     * runable 运行在主线程
+     * @param runnable
+     */
+    public  static void runOnUIThread(Runnable runnable){
+        if (isInMainThread()){
+            runnable.run();
+        }else {
+            getHandler().post(runnable);
+        }
+    }
+
+    public static boolean isInMainThread() {
+        int myTid = Process.myTid();
+        if (myTid==MyApplication.mainThreadId){
+            return  true;
+        }
+        return false;
     }
 }
