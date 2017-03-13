@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <include layout="@layout/common_top" />
@@ -22,16 +23,14 @@
                 <android.support.v4.view.ViewPager
                     android:id="@+id/vp_barner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </android.support.v4.view.ViewPager>
+                    android:layout_height="match_parent"></android.support.v4.view.ViewPager>
 
                 <com.viewpagerindicator.CirclePageIndicator
                     android:id="@+id/circle_barner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
-                    android:padding="10dp">
-                </com.viewpagerindicator.CirclePageIndicator>
+                    android:padding="10dp"></com.viewpagerindicator.CirclePageIndicator>
             </FrameLayout>
 
 
@@ -50,7 +49,7 @@
                     android:drawableRight="@drawable/recommend"
                     android:text="乐享活180天计划第一期"
                     android:textColor="#303030"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </RelativeLayout>
 
             <LinearLayout
@@ -67,7 +66,7 @@
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:text="本息保障"
-                    android:textColor="#888888"/>
+                    android:textColor="#888888" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -78,7 +77,7 @@
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:text="高额收益"
-                    android:textColor="#888888"/>
+                    android:textColor="#888888" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -87,7 +86,7 @@
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:text="每日计息"
-                    android:textColor="#888888"/>
+                    android:textColor="#888888" />
             </LinearLayout>
 
             <!-- 推荐产品信息-->
@@ -98,6 +97,17 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center">
 
+                <ysg.gdcp.cn.p2pfinance.ui.RoundProgress
+                    android:id="@+id/p_progresss"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:roundColor="@android:color/darker_gray"
+                    app:roundProgressColor="@android:color/holo_red_dark"
+                    app:roundWidth="10dp"
+                    app:textColor="#18b4ed"
+                    app:textSize="20sp">
+                    >
+                </ysg.gdcp.cn.p2pfinance.ui.RoundProgress>
 
             </RelativeLayout>
 
@@ -112,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:text="预期年利率"
                     android:textColor="#303030"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/p_yearlv"
@@ -121,7 +131,7 @@
                     android:gravity="center"
                     android:text="10.00%+2.00%"
                     android:textColor="#303030"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <Button
@@ -135,7 +145,7 @@
                 android:background="@drawable/home"
                 android:text="立即加入"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +155,7 @@
                 android:gravity="center"
                 android:text="风险保障金由光大银行监管"
                 android:textColor="@color/product_detail_common"
-                android:textSize="13sp"/>
+                android:textSize="13sp" />
         </LinearLayout>
 
     </ysg.gdcp.cn.p2pfinance.ui.MyScrollView>

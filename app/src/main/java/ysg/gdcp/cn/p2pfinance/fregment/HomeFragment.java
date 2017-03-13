@@ -31,6 +31,7 @@ import ysg.gdcp.cn.p2pfinance.common.AppNetConfig;
 import ysg.gdcp.cn.p2pfinance.domain.Image;
 import ysg.gdcp.cn.p2pfinance.domain.Index;
 import ysg.gdcp.cn.p2pfinance.domain.Product;
+import ysg.gdcp.cn.p2pfinance.ui.RoundProgress;
 import ysg.gdcp.cn.p2pfinance.utils.UIutils;
 
 import static com.alibaba.fastjson.JSON.parseObject;
@@ -54,6 +55,8 @@ public class HomeFragment extends Fragment {
     CirclePageIndicator circleBarner;
     @Bind(R.id.textView1)
     TextView textView1;
+    @Bind(R.id.p_progresss)
+    RoundProgress pProgress;
     @Bind(R.id.p_yearlv)
     TextView pYearlv;
     @Bind(R.id.button1)
