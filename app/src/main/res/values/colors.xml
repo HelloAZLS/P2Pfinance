@@ -7,4 +7,6 @@
     <color name="home_back_unselected">#878787</color>
     <color name="title_text">#26B8EE</color>
     <color name="product_detail_common">#666666</color>
+    <color name="divider_line">#e1e1e1</color>
+    <color name="product_red_common">#e84768</color>
 </resources>
