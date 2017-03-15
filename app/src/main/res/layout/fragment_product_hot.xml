@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <ysg.gdcp.cn.p2pfinance.ui.FlowLayout
         android:id="@+id/flow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f00"
-
+        android:layout_height="wrap_content"
+        android:background="#f3c3"
         ></ysg.gdcp.cn.p2pfinance.ui.FlowLayout>
 
 </LinearLayout>
