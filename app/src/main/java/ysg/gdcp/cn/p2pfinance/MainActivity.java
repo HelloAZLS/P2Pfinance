@@ -1,7 +1,5 @@
 package ysg.gdcp.cn.p2pfinance;
 
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -11,16 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ysg.gdcp.cn.p2pfinance.common.AppManager;
+import ysg.gdcp.cn.p2pfinance.common.BaseActivity;
 import ysg.gdcp.cn.p2pfinance.fregment.HomeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MeFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.MoreFragment;
 import ysg.gdcp.cn.p2pfinance.fregment.TouZiFragment;
 import ysg.gdcp.cn.p2pfinance.utils.UIutils;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 
     @Bind(R.id.content)
     FrameLayout content;
@@ -57,19 +54,20 @@ public class MainActivity extends FragmentActivity {
     private FragmentTransaction ft;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        AppManager.getInstance().addActivity(this);
-        initDate();
-    }
 
-    private void initDate() {
+    @Override
+    public void initData() {
         setSelect(0);
     }
+    @Override
+    protected void initTitle() {
 
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
     @OnClick({R.id.ll_home, R.id.ll_touzi, R.id.ll_me, R.id.ll_more})
     public void changeTab(View v) {
         switch (v.getId()) {
@@ -162,6 +160,5 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
-
 
 }
