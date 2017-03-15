@@ -82,6 +82,7 @@ public class ProductReCommendFragmemt extends Fragment {
         public View getView(int group, int position, View convertView) {
             TextView textView = new TextView(getActivity());
             random = new Random();
+            ////// TODO: 2017/3/15 测试 
             int r = random.nextInt(210);
             int g = random.nextInt(210);
             int b = random.nextInt(210);
