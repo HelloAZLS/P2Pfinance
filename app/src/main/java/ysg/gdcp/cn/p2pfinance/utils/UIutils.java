@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Process;
 import android.view.View;
+import android.widget.Toast;
 
 import ysg.gdcp.cn.p2pfinance.common.MyApplication;
 
@@ -57,5 +58,9 @@ public class UIutils {
             return  true;
         }
         return false;
+    }
+
+    public  static void  toast(String content,boolean isLong){
+        Toast.makeText(getContext(), content, isLong==true?Toast.LENGTH_LONG:Toast.LENGTH_SHORT).show();
     }
 }

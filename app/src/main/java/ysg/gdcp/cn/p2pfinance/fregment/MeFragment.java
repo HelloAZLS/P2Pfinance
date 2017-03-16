@@ -24,6 +24,7 @@ import ysg.gdcp.cn.p2pfinance.activity.LineChartActivity;
 import ysg.gdcp.cn.p2pfinance.activity.LoginActivity;
 import ysg.gdcp.cn.p2pfinance.activity.PieChartActivity;
 import ysg.gdcp.cn.p2pfinance.activity.TiXianActivity;
+import ysg.gdcp.cn.p2pfinance.activity.ToggleActivity;
 import ysg.gdcp.cn.p2pfinance.activity.UserInfoActivity;
 import ysg.gdcp.cn.p2pfinance.common.BaseActivity;
 import ysg.gdcp.cn.p2pfinance.domain.Login;
@@ -96,7 +97,10 @@ public class MeFragment extends BaseFragment {
     public void clickPie(View view) {
         ((BaseActivity) getActivity()).gotoActivity(PieChartActivity.class, null);
     }
-
+    @OnClick(R.id.ll_zhanquan)
+    public void clickQuan(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(ToggleActivity.class, null);
+    }
 
     @Override
     protected void initData(String content) {

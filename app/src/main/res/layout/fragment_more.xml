@@ -1,12 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:textSize="30sp"
-        android:textColor="#f00"
+
+    <ysg.gdcp.cn.p2pfinance.ui.AlawysTextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="更多"/>
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="怪咖感觉啊经过十几家噶距噶距咖感觉怪咖狗头人兔兔去年ioagjaoigagn1uiagia1 啊积分卡就发发开发i"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="40sp"/>
 </LinearLayout>
