@@ -26,7 +26,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     public void closeCurrentActivity() {
-        AppManager.getInstance().reomveAll();
+        AppManager.getInstance().removeCurent();
     }
 
     /**
