@@ -18,7 +18,9 @@ import com.squareup.picasso.Transformation;
 import butterknife.Bind;
 import butterknife.OnClick;
 import ysg.gdcp.cn.p2pfinance.R;
+import ysg.gdcp.cn.p2pfinance.activity.ChongZhiActivity;
 import ysg.gdcp.cn.p2pfinance.activity.LoginActivity;
+import ysg.gdcp.cn.p2pfinance.activity.TiXianActivity;
 import ysg.gdcp.cn.p2pfinance.activity.UserInfoActivity;
 import ysg.gdcp.cn.p2pfinance.common.BaseActivity;
 import ysg.gdcp.cn.p2pfinance.domain.Login;
@@ -67,12 +69,21 @@ public class MeFragment extends BaseFragment {
     }
 
     @OnClick(R.id.title_right)
-    public void clickSettings(View view){
-        ((BaseActivity)getActivity()).gotoActivity(UserInfoActivity.class,null);
+    public void clickSettings(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(UserInfoActivity.class, null);
     }
+    @OnClick(R.id.tixian)
+    public void clickTX(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(TiXianActivity.class, null);
+    }
+    @OnClick(R.id.chongzhi)
+    public void clickChongzhi(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(ChongZhiActivity.class, null);
+    }
+
     @Override
     protected void initData(String content) {
-       // isLogin();
+        // isLogin();
     }
 
     private void isLogin() {
