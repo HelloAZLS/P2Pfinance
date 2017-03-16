@@ -18,8 +18,11 @@ import com.squareup.picasso.Transformation;
 import butterknife.Bind;
 import butterknife.OnClick;
 import ysg.gdcp.cn.p2pfinance.R;
+import ysg.gdcp.cn.p2pfinance.activity.BarChartActivity;
 import ysg.gdcp.cn.p2pfinance.activity.ChongZhiActivity;
+import ysg.gdcp.cn.p2pfinance.activity.LineChartActivity;
 import ysg.gdcp.cn.p2pfinance.activity.LoginActivity;
+import ysg.gdcp.cn.p2pfinance.activity.PieChartActivity;
 import ysg.gdcp.cn.p2pfinance.activity.TiXianActivity;
 import ysg.gdcp.cn.p2pfinance.activity.UserInfoActivity;
 import ysg.gdcp.cn.p2pfinance.common.BaseActivity;
@@ -80,6 +83,20 @@ public class MeFragment extends BaseFragment {
     public void clickChongzhi(View view) {
         ((BaseActivity) getActivity()).gotoActivity(ChongZhiActivity.class, null);
     }
+    @OnClick(R.id.ll_touzi)
+    public void clickLine(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(LineChartActivity.class, null);
+    }
+
+    @OnClick(R.id.ll_touzi_zhiguan)
+    public void clickBar(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(BarChartActivity.class, null);
+    }
+    @OnClick(R.id.ll_zichang)
+    public void clickPie(View view) {
+        ((BaseActivity) getActivity()).gotoActivity(PieChartActivity.class, null);
+    }
+
 
     @Override
     protected void initData(String content) {
